@@ -13,6 +13,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import { connect } from "react-redux";
 import axios from "axios";
+import Checkenv from "../../api/Checkenv";
 
 const schema = yup
   .object()
@@ -203,12 +204,12 @@ const Authform = ({
           <p className="opt">Or continue with</p>
           <div className="social-login">
             <div className="circle-bg">
-              <a href="http://localhost:4000/auth/google">
+              <a href={Checkenv() + "/auth/google"}>
                 <FcGoogle className="social-icon" title="Google Sign in" />
               </a>
             </div>
             <div className="circle-bg">
-              <a href="http://localhost:4000/auth/facebook">
+              <a href={Checkenv() + "/auth/facebook"}>
                 <FaFacebookSquare
                   className="social-icon"
                   title="Facebook Sign in"
