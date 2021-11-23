@@ -27,7 +27,6 @@
   p {
     color: rgb(247, 71, 65);
     font-size: 0.9rem;
-    font-weight: 600;
   }
   a {
     padding: 0.2rem 0.4rem;
@@ -87,6 +86,7 @@
     max-width: 55rem;
     display: flex;
     flex-direction: column;
+
     .auth-btn {
       width: 100%;
 
@@ -117,6 +117,7 @@
 .auth-left {
   margin-top: 20px;
   width: 100%;
+  font-family: "Poppins", sans-serif;
 
   .input-wrapper {
     width: 100%;
@@ -130,7 +131,7 @@
       outline: 0;
       transition: all 0.45s cubic-bezier(0.19, 1, 0.22, 1);
       font-family: "Quicksand", sans-serif;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.8px;
       font-size: 1rem;
 
@@ -147,6 +148,7 @@
     }
     label {
       font-weight: 500;
+      color: rgba(0, 0, 0, 0.747);
       position: absolute;
       bottom: 1rem;
       left: 0;

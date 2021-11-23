@@ -38,8 +38,8 @@ export class CreatePost extends Component {
   }
   getFiles = async (e) => {
     const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 500,
+      maxSizeMB: 0.2,
+      maxWidthOrHeight: 1024,
       useWebWorker: true,
     };
     try {

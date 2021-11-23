@@ -1,14 +1,14 @@
 /** @format */
 
 @mixin button {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 0.35rem 1.2rem 0.45rem;
 
   border: 2px solid rgba(0, 0, 0, 0);
   background-color: #4dbc92;
   color: white;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   letter-spacing: 0.6px;
   transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
   cursor: pointer;
@@ -99,6 +99,7 @@ form {
 }
 .create-items-left {
   width: 35rem;
+  font-family: "Poppins", sans-serif;
   .usercreate-field {
     font-size: 0.8rem;
     font-weight: 600;
@@ -123,7 +124,9 @@ form {
     label {
       display: inline-block;
       font-size: 1.05rem;
-      font-weight: 500;
+      font-weight: 400;
+
+      color: #4dbc92;
       letter-spacing: 0.6px;
     }
     input,
@@ -132,14 +135,24 @@ form {
       padding: 0.5rem 0.8rem;
       display: block;
       width: 96%;
-      transition: all 0.3s ease-in-out;
-      border: 2px solid rgba(0, 0, 0, 0.192);
-      font-family: "Quicksand", sans-serif;
+      transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+      border: 2px solid rgba(0, 0, 0, 0.096);
+      font-family: "Poppins", sans-serif;
       letter-spacing: 0.6px;
       outline: 0;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 400;
+      border-radius: 4px;
       &::placeholder {
+        font-size: 0.9rem;
+        opacity: 1;
+      }
+
+      &:-ms-input-placeholder {
+        font-size: 0.9rem;
+      }
+
+      &::-ms-input-placeholder {
         font-size: 0.9rem;
       }
       &:focus {
@@ -147,14 +160,15 @@ form {
       }
     }
     select {
-      font-family: "Quicksand", sans-serif;
+      border-radius: 4px;
+      font-family: "Poppins", sans-serif;
       display: block;
       margin: 0.7rem 0;
       width: 100%;
       padding: 0.5rem 0.8rem;
       border: 2px solid rgba(0, 0, 0, 0.192);
       outline: 0;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 0.9rem;
 
       &:focus {
@@ -170,6 +184,7 @@ form {
   display: flex;
   flex-direction: column;
   text-align: right;
+  font-family: "Poppins", sans-serif;
   .input-conatiner {
     width: 80%;
     align-self: flex-end;
@@ -286,5 +301,59 @@ form {
 @media screen and(max-width:1600px) {
   .create-contents {
     margin: 40px auto 80px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  form {
+    width: 90%;
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .create-contents {
+    width: 100%;
+    height: auto;
+    margin: 10px auto 80px;
+    padding-bottom: 80px;
+  }
+  form {
+    flex-direction: column;
+  }
+  .create-items-left {
+    width: 90%;
+    .input-container {
+      margin-top: 0.8rem;
+      input,
+      textarea {
+        padding-right: 0;
+      }
+    }
+  }
+  .create-right-container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .create-contents {
+    width: 100%;
+    height: auto;
+    margin: 20px auto 50px;
+    padding-bottom: 50px;
+  }
+  form {
+    flex-direction: column;
+  }
+  .create-items-left {
+    width: 95%;
+  }
+  .create-right-container {
+    width: 100%;
+  }
+  .submit-btn {
+    width: 100%;
+    button {
+      width: 100% !important;
+    }
   }
 }

@@ -23,6 +23,7 @@
 
     h2 {
       font-size: 1.5rem;
+      color: #4dbc91b9;
     }
   }
   .field-header-span {
@@ -38,15 +39,31 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
+.readtag {
+  font-size: 0.85rem;
+  color: #29c97e;
+}
 .field-left-content {
   width: 30rem;
   margin-right: 1rem;
+  position: relative;
+  .open-left-item {
+    position: absolute;
+    top: 85%;
+    right: 0;
+    padding: 0.2rem;
+    color: rgb(107, 107, 107);
+    cursor: pointer;
+    &:hover {
+      color: black;
+    }
+  }
   .post-left-img {
     width: 460px;
     height: 250px;
     object-fit: cover;
     transition: all 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+    border-radius: 5px;
   }
   h3 {
     font-family: "Poppins", sans-serif;
@@ -54,6 +71,7 @@
     margin-top: 1.5rem;
     font-size: 1.4rem;
     margin-bottom: 0.8rem;
+    color: #05b439ee;
   }
   span {
     display: block;
@@ -92,6 +110,17 @@
     border: 2px solid rgba(0, 0, 0, 0.041);
 
     position: relative;
+    .open-item {
+      position: absolute;
+      bottom: 0.8rem;
+      right: 0.9rem;
+      color: #616161;
+      padding: 0.2rem;
+      cursor: pointer;
+      &:hover {
+        color: black;
+      }
+    }
     .field-fav {
       position: absolute;
       right: 1rem;
@@ -129,7 +158,6 @@
         align-items: center;
         font-size: 0.95rem;
         font-weight: 400;
-        color: #068f24;
       }
       .like-icons {
         font-size: 1.2rem;
@@ -157,6 +185,7 @@
     width: 90%;
     margin-top: 0.5rem;
     font-weight: 600;
+    color: #05b439ee;
     letter-spacing: 0px;
   }
   .field-desp {
@@ -167,5 +196,56 @@
     line-height: 1.8;
     margin-bottom: 0;
     font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .field-header {
+    width: 90%;
+  }
+  .field-left-content {
+    width: 26.5rem;
+    padding-bottom: 2rem;
+    img {
+      border-radius: 7px;
+    }
+  }
+  .field-right-content {
+    h3 {
+      font-size: 1.45rem;
+    }
+  }
+  .field-contents {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 950px) {
+  .field-header {
+    width: 90%;
+  }
+  .field-left-content {
+    width: 100%;
+    padding-bottom: 2rem;
+  }
+  .field-right-content {
+    width: 100%;
+    .field-right-items {
+      padding: 0.7rem 1.2rem 1.2rem;
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  .field-left-content {
+    width: 100%;
+    padding-bottom: 2rem;
+    margin-right: 0;
+    img {
+      border-radius: 7px;
+    }
+  }
+  .field-right-content {
+    width: 100%;
+    .field-right-items {
+      padding: 0.7rem 1.2rem 1.2rem;
+    }
   }
 }

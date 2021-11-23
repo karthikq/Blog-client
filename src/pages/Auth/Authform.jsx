@@ -223,7 +223,6 @@ const Authform = ({
   );
 };
 const mapStatetoProps = (state, props) => {
-  console.log(state, props);
   return {
     nameExists: state.Auth.usernameExists,
     emailExists: state.Auth.useremailExists,

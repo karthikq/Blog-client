@@ -136,7 +136,7 @@ const Navbar = (props) => {
             <Link to="/field/engineering">Engineering</Link>
           </li>
           <li>
-            <Link to="/field/latest"> Latest</Link>
+            <Link to="/field/design">Design</Link>
           </li>
           {props.isAuth && (
             <li>

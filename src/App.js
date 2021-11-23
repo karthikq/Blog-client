@@ -15,12 +15,17 @@ import { connect } from "react-redux";
 import { fetchUser } from "./redux/actions";
 import { fetchUsersPosts } from "./redux/actions/post";
 import SingleField from "./pages/singleField/SingleField";
+import Item from "./pages/Item/Item";
+import toast, { Toaster } from "react-hot-toast";
 
 function App(props) {
-  const { user } = window.Qs.parse(window.location.search, {
+  const { user, username } = window.Qs.parse(window.location.search, {
     ignoreQueryPrefix: true,
   });
   if (user) {
+    toast.success(`Welcome ${username}`, {
+      id: "logged",
+    });
     localStorage.setItem("authToken", user);
     props.fetchUser();
     setTimeout(() => {
@@ -46,7 +51,9 @@ function App(props) {
         <Route path="/field/:id" exact component={SingleField} />
         <Route path="/user/login" exact component={Login} />
         <Route path="/user/register" exact component={Register} />
+        <Route path="/post" exact component={Item} />
       </Switch>
+      <Toaster />
     </React.Fragment>
   );
 }

@@ -16,6 +16,7 @@ import {
   removeLikes,
 } from "../../redux/actions/post";
 import ImageFlip from "../../ImageFlip/ImageFlip";
+import { Link } from "react-router-dom";
 
 const SingleField = (props) => {
   const [posts, setPosts] = useState("");
@@ -66,9 +67,18 @@ const SingleField = (props) => {
                     }
                   />
                   <span className="sfield-desp">
-                    {item.description.length > 10
-                      ? item.description.substring(0, 100) + "..."
-                      : item.description}
+                    {item.description.length > 50 ? (
+                      <React.Fragment>
+                        {item.description.substring(0, 100) + "... "}
+                        <Link
+                          to={`/post/?postId=${item.post_Id}&field=${item.fieldName}`}
+                          className="readtag">
+                          Read more
+                        </Link>
+                      </React.Fragment>
+                    ) : (
+                      item.description
+                    )}
                   </span>
                 </div>
                 <div className="sfield-image">
