@@ -43,15 +43,7 @@ const Item = (props) => {
                 rel="noreferrer">
                 <FiDownloadCloud className="item-download-icon" />
               </a>
-            </div>
-          </div>
-          <div className="item-post-details">
-            <div className="item-details">
-              <h1>
-                {data.title} <sub>{field}</sub>{" "}
-              </h1>
-              <p>{data.description}</p>
-            </div>
+            </div>{" "}
             <div className="itempostlikes">
               <UserLikes
                 props={props}
@@ -60,6 +52,14 @@ const Item = (props) => {
                 iconClass={"itempostlikeicon"}
                 dislikeClass={"itempostlikeicon itempostdislikeicon"}
               />
+            </div>
+          </div>
+          <div className="item-post-details">
+            <div className="item-details">
+              <h1>
+                {data.title} <sub>{field}</sub>{" "}
+              </h1>
+              <p>{data.description}</p>
             </div>
           </div>
         </div>

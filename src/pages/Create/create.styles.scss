@@ -91,7 +91,7 @@ form {
 }
 .submit-btn {
   position: absolute;
-  bottom: -3rem;
+  bottom: -4rem;
   left: 0;
   button {
     @include button();
@@ -102,7 +102,7 @@ form {
   font-family: "Poppins", sans-serif;
   .usercreate-field {
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 1.4rem;
     margin-bottom: 0;
     color: rgb(87, 87, 87);
@@ -198,25 +198,33 @@ form {
       letter-spacing: 0.6px;
     }
     .filename {
-      margin-top: 0.5rem;
+      margin-top: 0.7rem;
       display: inline-block;
       width: 100%;
-      color: rgb(116, 115, 115) !important;
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: rgb(92, 91, 91) !important;
     }
     label {
       background-color: #4dbc92;
       color: rgb(255, 255, 255);
       font-weight: 500;
       width: 8rem;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       letter-spacing: 0.7px;
-      padding: 0.4rem 0.4rem;
+      padding: 0.38rem 0.4rem;
       display: inline-block;
       margin-bottom: 0;
       text-align: center;
       border: 2px solid rgba(0, 0, 0, 0);
       cursor: pointer;
-      &:hover {
+      &:focus {
+        color: black;
+
+        background: transparent;
+        border: 2px solid rgba(0, 0, 0, 0.623);
+      }
+      &:active {
         color: black;
 
         background: transparent;
@@ -240,6 +248,11 @@ form {
       object-fit: cover;
       transition: all 0.5s ease-in-out;
       animation: image-animate 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
+    .error-img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
     }
   }
   @keyframes image-animate {
@@ -330,11 +343,36 @@ form {
       }
     }
   }
+
+  .submit-btn {
+    width: 100%;
+
+    button {
+      width: 100% !important;
+    }
+  }
   .create-right-container {
     width: 100%;
+    .uploaded-img {
+      align-self: center;
+      position: relative;
+      right: 0.5rem;
+      width: 95%;
+      margin-top: 2rem;
+      padding-bottom: 3rem;
+      height: 260px;
+      background-color: rgba(0, 0, 0, 0);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease-in-out;
+        animation: image-animate 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      }
+    }
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 550px) {
   .create-contents {
     width: 100%;
     height: auto;
@@ -349,11 +387,5 @@ form {
   }
   .create-right-container {
     width: 100%;
-  }
-  .submit-btn {
-    width: 100%;
-    button {
-      width: 100% !important;
-    }
   }
 }

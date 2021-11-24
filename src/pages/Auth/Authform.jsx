@@ -199,7 +199,9 @@ const Authform = ({
           </div>
           {/* //from ceratestyles */}
           <div className="auth-btn">
-            <button type="submit">{header}</button>
+            <button type="submit">
+              {header === "Sign In" ? header : " Create account"}
+            </button>
           </div>{" "}
           <p className="opt">Or continue with</p>
           <div className="social-login">

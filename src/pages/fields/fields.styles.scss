@@ -6,9 +6,9 @@
   margin-bottom: 2rem;
 }
 .box {
-  width: 12px;
+  width: 10px;
   height: 45px;
-  background-color: rgba(134, 134, 134, 0.466);
+  background-color: rgba(0, 0, 0, 0.123);
   margin-right: 0.5rem;
 }
 .field-header {
@@ -23,7 +23,7 @@
 
     h2 {
       font-size: 1.5rem;
-      color: #4dbc91b9;
+      color: #242424b9;
     }
   }
   .field-header-span {
@@ -71,7 +71,11 @@
     margin-top: 1.5rem;
     font-size: 1.4rem;
     margin-bottom: 0.8rem;
-    color: #05b439ee;
+    color: #353535ee;
+    &:hover {
+      color: #1a9e60;
+      text-decoration: underline;
+    }
   }
   span {
     display: block;
@@ -178,15 +182,23 @@
       }
     }
   }
+  .fieldatag {
+    text-decoration: none;
+    color: inherit;
+  }
   h3 {
     font-family: "Poppins", sans-serif;
-    font-size: 1.45rem;
+    font-size: 1.38rem;
     margin-bottom: 0.6rem;
     width: 90%;
     margin-top: 0.5rem;
     font-weight: 600;
-    color: #05b439ee;
+    // color: #05b439ee;
     letter-spacing: 0px;
+    &:hover {
+      color: #1a9e60;
+      text-decoration: underline;
+    }
   }
   .field-desp {
     font-family: "Poppins", sans-serif;
@@ -241,11 +253,18 @@
     img {
       border-radius: 7px;
     }
+    h3 {
+      font-size: 1.15rem;
+    }
   }
   .field-right-content {
     width: 100%;
+    padding-right: 0;
     .field-right-items {
       padding: 0.7rem 1.2rem 1.2rem;
+    }
+    h3 {
+      font-size: 1.15rem;
     }
   }
 }

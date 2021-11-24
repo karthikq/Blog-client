@@ -6,6 +6,7 @@ import UserPostdetails from "../../components/UserPostDetails/UserPostdetails";
 import Fields from "../fields/Fields";
 import "./Home.styles.scss";
 import { RiShareBoxFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Home = (props) => {
   const [likedPost, setLikedPost] = useState("");
@@ -38,17 +39,32 @@ const Home = (props) => {
               <div className="home-left-details">
                 <h1>{likedPost?.title}</h1>
                 <UserPostdetails post={likedPost} userclass="avatar" />
-                <span className="post-details">{likedPost?.description}</span>
-                <a className="a-tag" href="/">
+                <span className="post-details">
+                  {likedPost?.description.length > 20 ? (
+                    <>
+                      {likedPost.description.substring(0, 100) + "... "}
+                      {/* <Link
+                        className="readtag"
+                        to={`/post/?postId=${likedPost.post_Id}&field=${likedPost.fieldName}`}>
+                        Read more
+                      </Link> */}
+                    </>
+                  ) : (
+                    likedPost.description
+                  )}
+                </span>
+                <Link
+                  to={`/post/?postId=${likedPost.post_Id}&field=${likedPost.fieldName}`}
+                  className="a-tag">
                   Read More
-                </a>
+                </Link>
               </div>
               <div className="home-right-details">
                 <img src={likedPost?.image} alt="mostliked" />
               </div>
-              <div className="open-home-item">
+              {/* <div className="open-home-item">
                 <RiShareBoxFill />
-              </div>
+              </div> */}
             </>
           ) : (
             <div className="loader-div">

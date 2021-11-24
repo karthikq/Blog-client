@@ -50,8 +50,9 @@
 
     h3 {
       font-family: "Poppins", sans-serif;
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin-top: 0.5rem;
+      line-height: 1.6;
       margin-bottom: 0.9rem;
       font-weight: 600;
       text-transform: capitalize;
@@ -59,7 +60,7 @@
     .sfield-desp {
       font-family: "Poppins", sans-serif;
       display: block;
-      margin-top: 0.8rem;
+      margin-top: 1rem;
       line-height: 1.8;
       font-size: 0.95rem;
       font-weight: 400;
@@ -103,16 +104,18 @@
     font-weight: 500;
   }
   .sfield-like-icon {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     cursor: pointer;
     margin-right: 0.4rem;
     position: relative;
     top: 0.02rem;
+    color: #61c797;
     &:hover {
       fill: #29c97e;
     }
   }
   .sfield-dislike-icon {
+    color: #252525;
     margin-right: 0;
     margin-left: 0.4rem;
   }
@@ -180,7 +183,7 @@
       h3 {
         margin-top: 0.5rem;
         font-family: "Poppins", sans-serif;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         margin-bottom: 0.9rem;
         font-weight: 600;
         text-transform: capitalize;
@@ -255,7 +258,7 @@
       h3 {
         margin-top: 0.5rem;
         font-family: "Poppins", sans-serif;
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         margin-bottom: 0.9rem;
         font-weight: 600;
         text-transform: capitalize;

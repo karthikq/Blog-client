@@ -15,6 +15,10 @@ const customStyles = {
     ...base,
     minHeight: 30,
     fontSize: "14px",
+    border: "0",
+    borderRadius: "0",
+    outline: "0",
+    borderBottom: "1px solid rgb(44, 44, 44)",
   }),
   dropdownIndicator: (base) => ({
     ...base,

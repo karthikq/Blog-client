@@ -205,11 +205,12 @@
 @media screen and (max-width: 550px) {
   .list-nav {
     ul {
-      justify-content: center;
+      justify-content: space-around;
       li {
         margin: 0 0.2rem;
         font-size: 0.85rem;
       }
+
       li:nth-child(3),
       li:nth-child(2),
       li:nth-child(4) {

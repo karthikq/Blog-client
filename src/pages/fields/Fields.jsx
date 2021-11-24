@@ -40,7 +40,12 @@ const Fields = (props) => {
             imageLink={props.item?.usersPost[0].image}
             imageClass={"post-left-img"}
           />
-          <h3>{props.item.usersPost[0]?.title}</h3>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={`/post/?postId=${props.item.usersPost[0]?.post_Id}&field=${props.item?.usersPost[0]?.fieldName}`}>
+            <h3>{props.item.usersPost[0]?.title}</h3>
+          </Link>
+
           <UserPostdetails post={props.item?.usersPost[0]} userclass="avatar" />
           <span>
             {props.item.usersPost[0]?.description.length > 30 ? (
@@ -56,12 +61,12 @@ const Fields = (props) => {
               props.item.usersPost[0]?.description
             )}
           </span>
-          <Link
+          {/* <Link
             to={`/post/?postId=${props.item.usersPost[0]?.post_Id}&field=${props.item?.usersPost[0]?.fieldName}`}>
             <div className="open-left-item">
               <RiShareBoxFill />
             </div>
-          </Link>
+          </Link> */}
         </div>
         <div className="field-right-content">
           {props.item.usersPost.map((post, index) => (
@@ -69,7 +74,13 @@ const Fields = (props) => {
               <div className="field-fav">
                 <FcLikePlaceholder className="fav-icon" />
               </div>
-              <h3>{post.title} </h3>
+              <Link
+                className="fieldatag"
+                style={{ textDecoration: "none" }}
+                to={`/post/?postId=${props.item.usersPost[0]?.post_Id}&field=${props.item?.usersPost[0]?.fieldName}`}>
+                <h3>{post.title} </h3>
+              </Link>
+
               <UserPostdetails post={post} userclass="avatar" />
               <span className="field-desp">
                 <React.Fragment>

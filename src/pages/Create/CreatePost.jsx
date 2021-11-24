@@ -37,6 +37,28 @@ export class CreatePost extends Component {
     this.ref2 = createRef();
   }
   getFiles = async (e) => {
+    if (!e.target.files[0]) {
+      document.querySelector(".createimg").classList.add("error-img");
+      this.setState({
+        details: "Error",
+      });
+      return document
+        .querySelector(".createimg")
+        .setAttribute(
+          "src",
+          "https://cdn-icons.flaticon.com/png/512/2797/premium/2797387.png?token=exp=1637731825~hmac=e81400f91a8738f08822bd5f3464386b"
+        );
+    }
+
+    this.setState({
+      details: e.target.files[0] ? e.target.files[0].name : "Error",
+    });
+    setTimeout(() => {
+      document.querySelector(".createimg").classList.remove("error-img");
+      document.querySelector("#imgbtn").style.width = "11rem";
+      document.querySelector("#imgbtn").innerHTML = "Click here to change";
+    }, 1200);
+
     const options = {
       maxSizeMB: 0.2,
       maxWidthOrHeight: 1024,
@@ -70,7 +92,12 @@ export class CreatePost extends Component {
   };
   handleSubmit = async (e) => {
     e.preventDefault();
-
+    const containes = document
+      .querySelector(".createimg")
+      .classList.contains("error-img");
+    if (containes) {
+      return this.setState({ details: "This field is required" });
+    }
     if (!this.state.imageFile) {
       return this.setState({ details: "This field is required" });
     }
@@ -205,7 +232,9 @@ export class CreatePost extends Component {
                   : "create-right-container"
               }>
               <div className="input-conatiner">
-                <label htmlFor="postimg">Choose Img</label>
+                <label htmlFor="postimg" id="imgbtn">
+                  Choose Img
+                </label>
                 <input
                   type="file"
                   id="postimg"
@@ -221,7 +250,9 @@ export class CreatePost extends Component {
                 //   onDone={(file) => this.getFiles(file)}
                 // /> */}
 
-                <span className="filename">{this.state.details}</span>
+                <span className="filename">
+                  {this.state.details.substring(0, 40)}
+                </span>
 
                 {/* {this.state.largeSize && (
                   <span className="errors">{this.state.details}</span>
