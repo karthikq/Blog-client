@@ -9,11 +9,12 @@ const FavComp = (props) => {
       {props.user.userData.fav?.find(
         (el) => el.fav_postId === props.post.post_Id
       ) ? (
-        <div className={props.itemClass}>
+        <div
+          className={props.itemClass}
+          onClick={() => props.removeFav(props.post)}>
           <BsFillHeartFill
             title="Add to favourites"
             className={props.iconClass + " " + props.favClass}
-            onClick={() => props.removeFav(props.post)}
           />
         </div>
       ) : (
