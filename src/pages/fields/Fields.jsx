@@ -5,9 +5,9 @@ import UserPostdetails from "../../components/UserPostDetails/UserPostdetails";
 import "./fields.styles.scss";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { RiShareBoxFill, RiDeleteBinLine } from "react-icons/ri";
-import SweetAlert from "react-bootstrap-sweetalert";
+
 import UserLikes from "../../components/UserLikes";
-import { Toaster } from "react-hot-toast";
+
 import { BsFillHeartFill } from "react-icons/bs";
 
 import {
@@ -23,6 +23,7 @@ import { connect } from "react-redux";
 import ImageFlip from "../../ImageFlip/ImageFlip";
 import { Link } from "react-router-dom";
 import FavComp from "../../components/FavComp";
+import Alert from "../../components/alert/Alert";
 
 const Fields = (props) => {
   const [alertState, setAlertState] = useState(false);
@@ -33,11 +34,6 @@ const Fields = (props) => {
     setselPost(post);
     setAlertState(true);
   };
-  const confirmDelete = () => {
-    props.DeletePost(selPost);
-    // setAlertState(true);
-    setAlertsucessState(true);
-  };
 
   const handleFav = (post) => {
     props.AddFav(post);
@@ -45,49 +41,22 @@ const Fields = (props) => {
   const removeFav = (post) => {
     props.RemoveFav(post);
   };
+  const confirmDelete = () => {
+    props.DeletePost(selPost);
+    // setAlertState(true);
+    setAlertsucessState(true);
+  };
   return (
     <div className="field-container">
       {alertState ? (
-        <div className="alert-container">
-          {alertsucessState ? (
-            <SweetAlert
-              success
-              title="Post Deleted"
-              confirmBtnCssClass="con-btn"
-              onConfirm={() => {
-                setAlertsucessState(false);
-                setAlertState(false);
-              }}>
-              <span style={{ fontSize: "1rem" }}> You Deleted the post</span>
-              <p
-                style={{
-                  fontWeight: 500,
-                  margin: "0.5rem 0",
-                  color: "green",
-                  fontSize: "1.02rem",
-                }}>
-                {selPost.title.substring(0, 30) + "..."}
-              </p>
-            </SweetAlert>
-          ) : (
-            <SweetAlert
-              warning
-              showCancel
-              confirmBtnText="Yes, delete it!"
-              confirmBtnBsStyle="danger"
-              cancelBtnCssClass="can-btn"
-              confirmBtnCssClass="con-btn"
-              title="Are you sure?"
-              onConfirm={() => {
-                confirmDelete();
-              }}
-              onCancel={() => setAlertState(false)}
-              focusCancelBtn>
-              You will not be able to recover this Post!{" "}
-            </SweetAlert>
-          )}
-          <Toaster />
-        </div>
+        <Alert
+          setAlertsucessState={setAlertsucessState}
+          setAlertState={setAlertState}
+          alertsucessState={alertsucessState}
+          DeletePost={props.DeletePost}
+          confirmDelete={confirmDelete}
+          selPost={selPost}
+        />
       ) : (
         <React.Fragment>
           <div className="field-header">

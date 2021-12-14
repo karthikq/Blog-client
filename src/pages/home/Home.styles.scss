@@ -179,6 +179,9 @@
   }
 }
 @media screen and (max-width: 720px) {
+  .home-contents {
+    border-bottom: 0;
+  }
   .home-left-details {
     width: 100%;
     padding: 0;

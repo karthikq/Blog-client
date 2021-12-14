@@ -67,6 +67,7 @@ export const AuthReducer = (state = initialState, action) => {
       };
     case "UPDATE_USER":
       return { ...state, userData: action.payload };
+
     default:
       return state;
   }

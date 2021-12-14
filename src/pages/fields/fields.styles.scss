@@ -170,7 +170,7 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
-      width: 6rem;
+      width: 7rem;
       .open-item {
         font-size: 1.1rem;
         color: #616161;
@@ -184,7 +184,9 @@
         color: #616161;
         font-size: 1.1rem;
         cursor: pointer;
-        padding: 0.3rem;
+        padding: 0.45rem 0.5rem;
+        background: #0000000e;
+        border-radius: 50%;
         &:hover {
           color: rgb(44, 180, 10);
         }
@@ -198,8 +200,11 @@
       z-index: 100;
       .fav-icon {
         font-size: 1.05rem;
-        padding: inherit;
+        padding: 0.5rem;
         color: #ff210438;
+        background: #00000009;
+        border-radius: 50%;
+
         cursor: pointer;
         padding: inherit;
         animation: favAnimateout 0.7s cubic-bezier(0.19, 1, 0.22, 1);
@@ -358,6 +363,7 @@
   }
   .field-contents {
     padding-bottom: 2rem;
+    border-bottom: 0;
   }
   .field-left-content {
     width: 100%;
