@@ -100,7 +100,7 @@ const Navbar = (props) => {
         <div className="nav-contents">
           <div className="brand-logo">
             <img
-              src="https://www.pngitem.com/pimgs/m/19-196348_logo-logotipo-de-la-plantilla-grey-free-logo.png"
+              src="https://i.ibb.co/YfDfGYN/Untitled-2.png"
               alt="brand logo"
             />
           </div>

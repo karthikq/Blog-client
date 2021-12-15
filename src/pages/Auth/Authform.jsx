@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Inputfield from "../../components/navbar/Input";
 import "./auth.styles.scss";
@@ -11,11 +11,16 @@ import * as yup from "yup";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
+import imageCompression from "browser-image-compression";
 
 import { connect } from "react-redux";
 
 import Checkenv from "../../api/Checkenv";
 import facebookIcon from "./Github.png";
+import CropImage from "../../components/CropImage/CropImage";
+import { async } from "@firebase/util";
+import ImageUpload from "../../customhook/ImageUpload";
+import toast, { Toaster } from "react-hot-toast";
 
 const schema = yup
   .object()
@@ -45,6 +50,9 @@ const Authform = ({
 }) => {
   const [porfilebase64, setporfilebase64] = useState("");
   const [passwordType, setpaswordType] = useState("password");
+  const [Imageblob, setImageblob] = useState("");
+  const [userData, setuserData] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -53,34 +61,69 @@ const Authform = ({
     resolver: yupResolver(schema),
   });
 
-  const handlePofileImage = (e) => {
-    try {
-      Resizer.imageFileResizer(
-        e.target.files[0],
-        300,
-        300,
-        "JPEG",
-        80,
-        0,
-        (uri) => {
-          setporfilebase64(uri);
-          // this.setState({ newImage: uri });
-        },
-        "base64",
-        200,
-        200
-      );
-    } catch (err) {
-      console.log(err);
+  const imgRef = useRef(null);
+  const previewCanvasRef = useRef(null);
+  const progressBar = useRef(null);
+
+  const [completedCrop, setCompletedCrop] = useState(null);
+
+  const onLoad = useCallback((img) => {
+    imgRef.current = img;
+  }, []);
+
+  const handlePofileImage = async (e) => {
+    const options = {
+      maxSizeMB: 0.2,
+      maxWidthOrHeight: 1024,
+      useWebWorker: true,
+    };
+    setImageblob(e.target.files[0]);
+
+    const compressedImg = await imageCompression(e.target.files[0], options);
+    const src = URL.createObjectURL(compressedImg);
+    setporfilebase64(src);
+  };
+  const handleImage = (url, details) => {
+    toast.dismiss();
+    if (url) {
+      handleLogin(details, url);
     }
   };
 
-  const onSubmit = (data) => {
+  const onsubmit = (data) => {
     if (loginState) {
       handleLogin(data);
     } else {
-      data.profileUrl = porfilebase64;
-      handleLogin(data);
+      previewCanvasRef.current.toBlob(
+        async (blob) => {
+          blob.name = Imageblob.name;
+
+          toast.loading("Uploading Image please wait...");
+          ImageUpload(blob, progressBar.current, handleImage, toast, data);
+        },
+        "image/png",
+        1
+      );
+
+      // try {
+      //   Resizer.imageFileResizer(
+      //     e.target.files[0],
+      //     300,
+      //     300,
+      //     "JPEG",
+      //     80,
+      //     0,
+      //     (uri) => {
+      //       setporfilebase64(uri);
+      //       // this.setState({ newImage: uri });
+      //     },
+      //     "base64",
+      //     200,
+      //     200
+      //   );
+      // } catch (err) {
+      //   console.log(err);
+      // }
     }
   };
   // const handleClick = async () => {
@@ -91,7 +134,7 @@ const Authform = ({
     <div className="auth-container">
       <div className="auth-contents">
         <h1>{header}</h1>
-        <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
+        <form className="auth-form" onSubmit={handleSubmit(onsubmit)}>
           <div className="auth-left">
             {!loginState && (
               <React.Fragment>
@@ -175,7 +218,20 @@ const Authform = ({
                 </Inputfield>
                 <div className="uploaded-img">
                   {porfilebase64 ? (
-                    <img src={porfilebase64} alt="profile url" />
+                    <>
+                      {/* <img src={porfilebase64} alt="profile url" /> */}
+                      <CropImage
+                        Upimg={porfilebase64}
+                        imgRef={imgRef}
+                        onLoad={onLoad}
+                        setCompletedCrop={setCompletedCrop}
+                        previewCanvasRef={previewCanvasRef}
+                        completedCrop={completedCrop}
+                      />
+                      <div className="progress-bar-reg">
+                        <span ref={progressBar}></span>
+                      </div>
+                    </>
                   ) : (
                     <div>
                       <Animation w={180} h={180} name="loginAn" />
@@ -221,6 +277,7 @@ const Authform = ({
             </a>
           </div>
         </form>
+        <Toaster />
       </div>{" "}
     </div>
   );

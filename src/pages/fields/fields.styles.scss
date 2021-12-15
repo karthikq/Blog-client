@@ -76,6 +76,48 @@
   justify-content: space-between;
   flex-wrap: wrap;
   border-bottom: 3px solid rgba(0, 0, 0, 0.068);
+  .field-likes {
+    margin-top: 1.4rem;
+    position: relative;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    width: 7rem;
+    justify-content: space-between;
+    .likes {
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      align-items: center;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+    .like-icons {
+      font-size: 1.2rem;
+      padding: 0.2rem 0.15rem;
+      cursor: pointer;
+      margin-right: 0.3rem;
+      color: rgba(8, 8, 8, 0.753);
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      &:hover {
+        fill: #29c97e;
+      }
+      &:active {
+        transform: scale(1.4);
+      }
+    }
+    .dislike {
+      margin-right: 0;
+      margin-left: 0.3rem;
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+      &:hover {
+        fill: #c03c2a;
+      }
+      &:active {
+        transform: scale(1.4);
+      }
+    }
+  }
 }
 
 .readtag {
@@ -127,6 +169,9 @@
     font-weight: 400;
   }
 }
+// .field-right-nocontent {
+//   display: none;
+// }
 .field-right-content {
   width: 43%;
   height: 50vh;
@@ -184,7 +229,7 @@
         color: #616161;
         font-size: 1.1rem;
         cursor: pointer;
-        padding: 0.45rem 0.5rem;
+        padding: 0.45rem 0.55rem;
         background: #0000000e;
         border-radius: 50%;
         &:hover {
@@ -246,48 +291,6 @@
       right: 1rem;
       &:hover {
         opacity: 0.8;
-      }
-    }
-    .field-likes {
-      margin-top: 1.4rem;
-      position: relative;
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      width: 7rem;
-      justify-content: space-between;
-      .likes {
-        font-family: "Poppins", sans-serif;
-        display: flex;
-        align-items: center;
-        font-size: 0.95rem;
-        font-weight: 400;
-      }
-      .like-icons {
-        font-size: 1.2rem;
-        padding: 0.2rem 0.15rem;
-        cursor: pointer;
-        margin-right: 0.3rem;
-        color: rgba(8, 8, 8, 0.753);
-        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-        &:hover {
-          fill: #29c97e;
-        }
-        &:active {
-          transform: scale(1.4);
-        }
-      }
-      .dislike {
-        margin-right: 0;
-        margin-left: 0.3rem;
-        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-
-        &:hover {
-          fill: #c03c2a;
-        }
-        &:active {
-          transform: scale(1.4);
-        }
       }
     }
   }

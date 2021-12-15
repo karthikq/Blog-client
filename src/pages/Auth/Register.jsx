@@ -6,14 +6,14 @@ import { connect } from "react-redux";
 import React from "react";
 import { registerUser } from "../../redux/actions";
 import Authform from "./Authform";
-
+import toast, { Toaster } from "react-hot-toast";
 import { useHistory } from "react-router-dom";
 
 const Register = (props) => {
-  const history = useHistory();
-  const handleRegister = async (data) => {
+  const handleRegister = async (data, url) => {
+    const toastId = toast.loading("Registering " + data.username);
     try {
-      await props.registerUser(data);
+      await props.registerUser(data, url, toast, toastId);
     } catch (error) {
       console.log(error);
     }
@@ -26,6 +26,7 @@ const Register = (props) => {
         loginState={false}
         handleLogin={handleRegister}
       />
+      <Toaster />
     </div>
   );
 };

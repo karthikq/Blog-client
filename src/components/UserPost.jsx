@@ -80,17 +80,19 @@ const UserPost = (props) => {
               dislikeClass={"up-like-icon up-dislike-icon"}
             />
           </div>
-          <div className="up-userpost-fav">
-            <FavComp
-              addFav={handleFav}
-              removeFav={removeFav}
-              post={postData}
-              itemClass="up-userpost-item-fav"
-              iconClass="up-userpost-item-fav-icon"
-              favClass="up-userpost-item-icon-fill"
-              user={props.user}
-            />
-          </div>
+          {props.userState && (
+            <div className="up-userpost-fav">
+              <FavComp
+                addFav={handleFav}
+                removeFav={removeFav}
+                post={postData}
+                itemClass="up-userpost-item-fav"
+                iconClass="up-userpost-item-fav-icon"
+                favClass="up-userpost-item-icon-fill"
+                user={props.user}
+              />
+            </div>
+          )}
         </div>
       )}{" "}
     </>

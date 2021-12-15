@@ -45,6 +45,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    object-fit: cover;
   }
   a {
     text-decoration: none;
@@ -143,14 +144,16 @@
   .home-contents {
     width: 88%;
     padding-bottom: 2rem;
+    flex-direction: column-reverse;
   }
 
   .home-container {
-    margin: 40px 0;
+    margin: 30px 0 40px;
   }
   .home-left-details {
     width: 100%;
     padding: 0;
+    padding-top: 2.5rem;
     padding-bottom: 2rem;
     h1 {
       font-size: 1.4rem;
@@ -181,11 +184,13 @@
 @media screen and (max-width: 720px) {
   .home-contents {
     border-bottom: 0;
+    padding-bottom: 1rem;
   }
   .home-left-details {
     width: 100%;
     padding: 0;
-    padding-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
     h1 {
       font-size: 1.2rem;
       margin-bottom: 1.2rem;

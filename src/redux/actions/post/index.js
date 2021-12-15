@@ -189,31 +189,15 @@ export const DeletePost = (post) => async (dispatch) => {
   const { data } = await Api.delete(`/post/delete/${post.post_Id}`, {
     data: post,
   });
-
+  console.log(data);
   if (data.deletePost.usersPost.length > 0) {
     dispatch({
       type: "DELETE_POST",
       payload: post,
     });
-    dispatch({
-      type: "DELETE_USER_POST",
-      payload: data.userModel,
-    });
-    dispatch({
-      type: "UPDATE_USER",
-      payload: data.userModel,
-    });
   } else {
     dispatch({
-      type: "DELETE_USER_POST",
-      payload: data.userModel,
-    });
-    dispatch({
-      type: "UPDATE_USER",
-      payload: data.userModel,
-    });
-    dispatch({
-      type: "DELETE_POST",
+      type: "DELETE_POST_FIELD",
       payload: post,
     });
     dispatch({
@@ -221,6 +205,14 @@ export const DeletePost = (post) => async (dispatch) => {
       payload: data.posts,
     });
   }
+  dispatch({
+    type: "DELETE_USER_POST",
+    payload: data.userModel,
+  });
+  dispatch({
+    type: "UPDATE_USER_DATA",
+    payload: data.userModel,
+  });
 };
 
 export const AddFav = (post) => async (dispatch, getState) => {

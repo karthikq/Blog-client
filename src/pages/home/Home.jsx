@@ -22,6 +22,7 @@ const Home = (props) => {
     const item = maxlike.filter((item) => item.length > 0 && item);
 
     const randomNumber = Math.floor(Math.random() * item.length);
+
     const data = { ...item[randomNumber] };
     setLikedPost(data[0]);
     setimgState(true);

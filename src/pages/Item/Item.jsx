@@ -53,7 +53,9 @@ const Item = (props) => {
   const confirmDelete = () => {
     props.DeletePost(selPost);
     setAlertsucessState(true);
-    history.push("/");
+    setTimeout(() => {
+      history.push("/");
+    }, 1000);
   };
 
   return (
