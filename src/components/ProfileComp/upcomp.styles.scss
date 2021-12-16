@@ -123,8 +123,8 @@
       }
     }
     .up-progress-bar {
-      display: block;
-      width: 10rem;
+      display: none;
+      max-width: 10rem;
       transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
       height: 0.25rem;
       margin-top: 20px;
