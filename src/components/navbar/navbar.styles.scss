@@ -31,7 +31,7 @@
 }
 .brand-logo {
   width: 150px;
-  height: 70px;
+  height: 80px;
   img {
     width: 100%;
     height: 100%;
@@ -203,6 +203,15 @@
   }
 }
 @media screen and (max-width: 550px) {
+  .brand-logo {
+    width: 100px;
+    height: 60px;
+    position: relative;
+    top: 0.5rem;
+  }
+  .nav-profile {
+    padding: 0;
+  }
   .list-nav {
     ul {
       justify-content: space-around;

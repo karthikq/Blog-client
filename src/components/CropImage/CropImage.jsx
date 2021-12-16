@@ -14,7 +14,7 @@ const CropImage = ({
   previewCanvasRef,
   completedCrop,
 }) => {
-  const [crop, setCrop] = useState({ unit: "%", width: 40, aspect: 16 / 9 });
+  const [crop, setCrop] = useState({ unit: "%", width: 40 });
 
   useEffect(() => {
     if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {

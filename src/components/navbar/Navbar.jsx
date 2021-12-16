@@ -99,11 +99,10 @@ const Navbar = (props) => {
       <div className="navbar-wrapper">
         <div className="nav-contents">
           <div className="brand-logo">
-            {/* <img
-              src="https://i.ibb.co/YfDfGYN/Untitled-2.png"
+            <img
+              src="https://i.ibb.co/b6FQD2W/logo-react-blog2.png"
               alt="brand logo"
-            /> */}
-            <p>Creative blog posts</p>
+            />
           </div>
           <div className="nav-details">
             <div className="nav-profile">
