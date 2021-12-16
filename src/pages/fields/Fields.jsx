@@ -81,7 +81,7 @@ const Fields = (props) => {
               <Link
                 style={{ textDecoration: "none" }}
                 to={`/post/?postId=${props.item.usersPost[0]?.post_Id}&field=${props.item?.usersPost[0]?.fieldName}`}>
-                <h3>{props.item.usersPost[0]?.title}</h3>
+                <h3> {props.item.usersPost[0]?.title}</h3>
               </Link>
               <UserPostdetails
                 post={props.item?.usersPost[0]}

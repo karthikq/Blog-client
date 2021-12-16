@@ -59,13 +59,20 @@ const CropImage = ({
         onComplete={(c) => setCompletedCrop(c)}
       />
       <div
+        className="canvas-div"
         style={{
           marginBottom: "20px",
         }}>
-        <p>Preview</p>
+        <p
+          style={{
+            fontWeight: "300",
+            letterSpacing: "0.5px",
+            marginBottom: "0.8rem",
+          }}>
+          Preview
+        </p>
         <canvas
           ref={previewCanvasRef}
-          className="user-selected-img"
           // Rounding is important so the canvas width and height matches/is a multiple for sharpness.
           style={{
             objectFit: "cover",

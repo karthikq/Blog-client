@@ -81,7 +81,14 @@ const SingleField = (props) => {
                     ? "sfield-post-text sfield-text-align"
                     : "sfield-post-text"
                 }>
-                <h3>{item.title}</h3>
+                <h3>
+                  {" "}
+                  <Link
+                    to={`/post/?postId=${item.post_Id}&field=${item.fieldName}`}>
+                    {" "}
+                    {item.title}
+                  </Link>{" "}
+                </h3>
                 <UserPostdetails
                   post={item}
                   userclass={
@@ -107,7 +114,12 @@ const SingleField = (props) => {
                 <ImageFlip imageLink={item.image} imageClass="postimage" />
               </div>
 
-              <div className="sfield-likes">
+              <div
+                className={
+                  (index + 1) % 2 === 0
+                    ? "sfield-likes sfield-likes-left"
+                    : "sfield-likes"
+                }>
                 <UserLikes
                   props={props}
                   item={item}
@@ -115,7 +127,12 @@ const SingleField = (props) => {
                   dislikeClass={"sfield-like-icon sfield-dislike-icon"}
                 />
               </div>
-              <div className="sfield-fav-div">
+              <div
+                className={
+                  (index + 1) % 2 === 0
+                    ? "sfield-fav-div sfield-fav-div-left"
+                    : "sfield-fav-div"
+                }>
                 <FavComp
                   addFav={handleFav}
                   removeFav={removeFav}
@@ -125,12 +142,14 @@ const SingleField = (props) => {
                   favClass="sfield-fav-icon-fill"
                   user={props.user}
                 />
-                <div className="sfield-delete">
-                  <RiDeleteBinLine
-                    onClick={() => handleDelete(item)}
-                    className="sfield-delete-icon"
-                  />
-                </div>
+                {props.user.userData.userId === item.userId && (
+                  <div className="sfield-delete">
+                    <RiDeleteBinLine
+                      onClick={() => handleDelete(item)}
+                      className="sfield-delete-icon"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           ))}

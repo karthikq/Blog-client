@@ -117,13 +117,18 @@ const Item = (props) => {
                 />{" "}
               </div>
               <div className="item-details">
+                <span className="t-span-feild">Field : {field} </span>
                 <h1>
-                  {data.title} <sub>{field}</sub>{" "}
+                  <span className="home-t-span">Title</span> : {data.title}{" "}
+                  <sub>{field}</sub>{" "}
                 </h1>
                 <div className="item-user">
                   <UserPostdetails post={data} userclass="avatar" />
                 </div>
-                <p className="item-ptag">{data.description}</p>
+                <p className="item-ptag">
+                  <span className="home-t-span">Description : </span>
+                  {data.description}
+                </p>
               </div>
             </div>
           </div>

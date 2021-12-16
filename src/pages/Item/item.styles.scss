@@ -54,7 +54,7 @@
     border: 2px solid #34f1991e;
 
     span {
-      margin: 0 1.6rem;
+      margin: 0 1.4rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -92,17 +92,17 @@
     }
     .item-actions {
       position: absolute;
-      right: 1.2rem;
+      right: 1.4rem;
       bottom: 0.1rem;
       width: 10rem;
 
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
-      gap: 0 1rem;
+      gap: 0 1.4rem;
     }
     .item-delete-icon {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       padding: 0.5rem;
       background: #00000002;
       border-radius: 50%;
@@ -110,6 +110,10 @@
       color: #000000a1;
       &:active {
         animation: favAnimateout 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      &:hover {
+        color: #06a55b;
+        transform: scale(1.05);
       }
     }
     .item-download-icon {
@@ -155,11 +159,21 @@
         font-weight: 400;
       }
     }
+    .t-span-feild {
+      color: #8b8b8b;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      text-align: right;
+      width: 100%;
+      display: block;
+    }
     margin-top: 2rem;
     h1 {
-      font-size: 1.65rem;
-
-      font-weight: 700;
+      font-size: 1.6rem;
+      color: rgba(2, 2, 2, 0.753);
+      font-weight: 600;
       margin-bottom: 0.8rem;
       sub {
         font-weight: 300;

@@ -22,6 +22,7 @@ const UserSettings = ({ userData, Updateuser, userDetail }) => {
   } = useForm();
   const imgRef = useRef(null);
   const previewCanvasRef = useRef(null);
+  const formBtn = useRef(null);
 
   const [imageState, setImageState] = useState(false);
   const [imgUrl, setimgUrl] = useState("");
@@ -50,10 +51,10 @@ const UserSettings = ({ userData, Updateuser, userDetail }) => {
   }, []);
 
   const handleImage = async (url, userDetails) => {
-    console.log(userDetails);
     if (!userDetails) {
       toast.dismiss();
       toast.error("Please press submit button again");
+      formBtn.current.setAttribute("disabled", false);
     } else {
       if (url) {
         toast.dismiss();
@@ -62,6 +63,7 @@ const UserSettings = ({ userData, Updateuser, userDetail }) => {
         });
 
         await Updateuser(userDetails, url, toast);
+        formBtn.current.removeAttribute("disabled");
         setimgUrl(url);
         setImageState(false);
       }
@@ -70,11 +72,12 @@ const UserSettings = ({ userData, Updateuser, userDetail }) => {
   const onSubmit = async (data) => {
     data.userId = userData.userId;
     setUpData(data);
-    if (!completedCrop || !previewCanvasRef.current) {
-      return;
-    }
-
+    formBtn.current.setAttribute("disabled", true);
     if (imageState) {
+      if (!completedCrop || !previewCanvasRef.current) {
+        formBtn.current.removeAttribute("disabled");
+        return;
+      }
       const toastId = toast.loading("Saving Data please wait ...");
       settoastId(toastId);
 
@@ -92,6 +95,7 @@ const UserSettings = ({ userData, Updateuser, userDetail }) => {
     } else {
       const toastid = toast.loading("Updating Data");
       await Updateuser(data, userData.profileUrl, toast);
+      formBtn.current.removeAttribute("disabled");
       toast.success("Data saved...", {
         id: toastid,
       });
@@ -154,7 +158,10 @@ const UserSettings = ({ userData, Updateuser, userDetail }) => {
                 </>
               )}
             </div>{" "}
-            <button className="up-form-btn"> Update</button>
+            <button ref={formBtn} className="up-form-btn">
+              {" "}
+              Update
+            </button>
           </div>
           {imageState && (
             <div className="up-form-right">

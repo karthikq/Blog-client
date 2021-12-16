@@ -208,6 +208,7 @@ export class CreatePost extends Component {
                     type="text"
                     name="fieldName"
                     required
+                    maxLength={20}
                     placeholder="eg:clothing"
                     onChange={(e) =>
                       this.setState({
