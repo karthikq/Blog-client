@@ -240,6 +240,7 @@
   .up-details {
     min-height: 30rem;
     padding-left: 0rem;
+    overflow-y: unset;
   }
   .up-sidebar {
     min-height: 20rem;
@@ -253,7 +254,7 @@
       margin-top: 10px;
       img {
         border-radius: 0;
-        object-fit: contain;
+        object-fit: cover;
       }
     }
     .up-sidebar-details {

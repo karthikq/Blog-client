@@ -158,8 +158,7 @@ const UserSettings = ({ userData, Updateuser, userDetail }) => {
                 </>
               )}
             </div>{" "}
-            <button ref={formBtn} className="up-form-btn">
-              {" "}
+            <button ref={formBtn} className="up-form-btn up-form-btn-desk">
               Update
             </button>
           </div>
@@ -178,7 +177,13 @@ const UserSettings = ({ userData, Updateuser, userDetail }) => {
               </div>
               <span className="up-progress-bar"></span>
             </div>
-          )}
+          )}{" "}
+          <button
+            ref={formBtn}
+            style={imageState ? { margin: "0" } : { marginTop: "1rem" }}
+            className="up-form-btn up-form-btn-mobile">
+            Update
+          </button>
         </form>
       </div>{" "}
       <Toaster />
