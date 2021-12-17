@@ -228,7 +228,7 @@
       align-items: center;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 0 1.2rem;
+      gap: 0 1.1rem;
       width: 7rem;
       .open-item {
         font-size: 1.1rem;
@@ -388,6 +388,9 @@
   .field-contents {
     padding-bottom: 2rem;
     border-bottom: 0;
+    .field-likes {
+      width: 6.45rem;
+    }
   }
   .field-left-content {
     width: 100%;
