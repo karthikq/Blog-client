@@ -73,25 +73,33 @@ const UserSettings = ({ userData, Updateuser, userDetail }) => {
     data.userId = userData.userId;
     setUpData(data);
     formBtn.current.setAttribute("disabled", true);
+
     if (imageState) {
       if (!completedCrop || !previewCanvasRef.current) {
         formBtn.current.removeAttribute("disabled");
+        toast.error("please crop the image");
         return;
-      }
-      const toastId = toast.loading("Saving Data please wait ...");
-      settoastId(toastId);
+      } else {
+        const toastId = toast.loading("Saving Data please wait ...");
+        settoastId(toastId);
 
-      setTimeout(() => {
-        const progressbar = document.querySelector(".up-progress-bar");
-        previewCanvasRef.current.toBlob(
-          async (blob) => {
-            blob.name = imgUrl.name;
-            await ImageUpload(blob, progressbar, handleImage, toast, data);
-          },
-          "image/png",
-          1
-        );
-      }, 1200);
+        setTimeout(() => {
+          const progressbar = document.querySelector(".up-progress-bar");
+          previewCanvasRef.current.toBlob(
+            async (blob) => {
+              if (!blob) {
+                toast.dismiss();
+                return toast.error("please crop the image to continue");
+              } else {
+                blob.name = imgUrl.name;
+                await ImageUpload(blob, progressbar, handleImage, toast, data);
+              }
+            },
+            "image/png",
+            1
+          );
+        }, 1200);
+      }
     } else {
       const toastid = toast.loading("Updating Data");
       await Updateuser(data, userData.profileUrl, toast);

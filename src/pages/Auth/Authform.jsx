@@ -52,6 +52,7 @@ const Authform = ({
   const [passwordType, setpaswordType] = useState("password");
   const [Imageblob, setImageblob] = useState("");
   const [userData, setuserData] = useState("");
+  const [btnStatus, setbtnStatus] = useState(false);
 
   const {
     register,
@@ -64,6 +65,7 @@ const Authform = ({
   const imgRef = useRef(null);
   const previewCanvasRef = useRef(null);
   const progressBar = useRef(null);
+  const authBtn = useRef(null);
 
   const [completedCrop, setCompletedCrop] = useState(null);
 
@@ -86,20 +88,26 @@ const Authform = ({
   const handleImage = (url, details) => {
     toast.dismiss();
     if (url) {
-      handleLogin(details, url);
+      handleLogin(details, url, setbtnStatus);
     }
   };
 
   const onsubmit = (data) => {
+    setbtnStatus(true);
     if (loginState) {
-      handleLogin(data);
+      handleLogin(data, setbtnStatus);
     } else {
       previewCanvasRef.current.toBlob(
         async (blob) => {
-          blob.name = Imageblob.name;
+          if (!blob) {
+            toast.dismiss();
+            toast.error("please crop th Image to continue");
+          } else {
+            blob.name = Imageblob.name;
 
-          toast.loading("Uploading Image please wait...");
-          ImageUpload(blob, progressBar.current, handleImage, toast, data);
+            toast.loading("Uploading Image please wait...");
+            ImageUpload(blob, progressBar.current, handleImage, toast, data);
+          }
         },
         "image/png",
         1
@@ -255,7 +263,7 @@ const Authform = ({
           </div>
           {/* //from ceratestyles */}
           <div className="auth-btn">
-            <button type="submit">
+            <button disabled={btnStatus} type="submit">
               {header === "Sign In" ? header : " Create account"}
             </button>
           </div>{" "}
