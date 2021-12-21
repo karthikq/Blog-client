@@ -23,6 +23,7 @@ import { Link } from "react-router-dom";
 import FavComp from "../../components/FavComp";
 import { RiDeleteBinLine } from "react-icons/ri";
 import Alert from "../../components/alert/Alert";
+import Dropdown from "../../components/Dropdown/Dropdown";
 
 const SingleField = (props) => {
   const [posts, setPosts] = useState("");
@@ -142,14 +143,20 @@ const SingleField = (props) => {
                   favClass="sfield-fav-icon-fill"
                   user={props.user}
                 />
-                {props.user.userData.userId === item.userId && (
+                <Dropdown
+                  handleDelete={handleDelete}
+                  user={props.user}
+                  post={item}
+                  fieldState={(index + 1) % 2 === 0 ? false : true}
+                />
+                {/* {props.user.userData.userId === item.userId && (
                   <div className="sfield-delete">
                     <RiDeleteBinLine
                       onClick={() => handleDelete(item)}
                       className="sfield-delete-icon"
                     />
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           ))}
