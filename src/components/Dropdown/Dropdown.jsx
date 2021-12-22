@@ -57,10 +57,14 @@ const Dropdown = ({ post, handleDelete, user, fieldState }) => {
 
           {user.Auth && user.userData.userId === post.userId && (
             <React.Fragment>
-              <span>
-                <RiEditBoxLine style={{ marginRight: "0.3rem" }} />
-                Edit Post
-              </span>
+              <Link
+                to={`/user/post/edit/${post.post_Id}?field=${post.fieldName}`}
+                style={{ textDecoration: "none", color: "black" }}>
+                <span>
+                  <RiEditBoxLine style={{ marginRight: "0.3rem" }} />
+                  Edit Post
+                </span>
+              </Link>
               <span onClick={() => handleDelete(post)}>
                 <RiDeleteBinLine style={{ marginRight: "0.3rem" }} />
                 Delete Post

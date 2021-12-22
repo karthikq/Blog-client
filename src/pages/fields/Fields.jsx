@@ -132,7 +132,7 @@ const Fields = (props) => {
               </p>
               {props.item.usersPost.map((post, index) =>
                 index >= 0 ? (
-                  <div className="field-right-items" key={index}>
+                  <div className="field-right-items" key={index} id={post.post_Id}>
                     <FavComp
                       addFav={handleFav}
                       removeFav={removeFav}
