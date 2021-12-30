@@ -131,7 +131,7 @@ const UserProfle = ({ user, posts, otherusers }) => {
             </React.Fragment>
           )}
 
-          {path === "favorites" && (
+          {/* {path === "favorites" && (
             <React.Fragment>
               {adminUser ? (
                 user.fav.length > 0 ? (
@@ -159,7 +159,7 @@ const UserProfle = ({ user, posts, otherusers }) => {
                 <h2>No Favorites items found</h2>
               )}
             </React.Fragment>
-          )}
+          )} */}
         </div>
       </div>
     </div>
