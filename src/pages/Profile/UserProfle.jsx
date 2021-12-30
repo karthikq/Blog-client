@@ -88,7 +88,7 @@ const UserProfle = ({ user, posts, otherusers }) => {
                 <MdOutlineKeyboardArrowRight className="up-arraow-icon" />
               </p>
             )}
-            <p
+            {/* <p
               className={
                 path !== "favorites" ? "up-p-tag" : "up-p-tag up-p-tag-active"
               }
@@ -97,7 +97,7 @@ const UserProfle = ({ user, posts, otherusers }) => {
                 <BsHeart /> favorites
               </span>
               <MdOutlineKeyboardArrowRight className="up-arraow-icon" />
-            </p>
+            </p> */}
           </div>
         </div>
         <div className="up-details">
