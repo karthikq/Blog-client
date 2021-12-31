@@ -31,6 +31,16 @@
     object-fit: cover;
     border-radius: 4px;
   }
+  .item-date {
+    position: absolute;
+    top: -0.5rem;
+    right: 0.3rem;
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: white;
+    background-color: #92929283;
+    padding: 0.25rem 0.35rem;
+  }
 }
 .item-post-details {
   margin-top: 0rem;
@@ -99,7 +109,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 0 1rem;
+      gap: 0 0.8rem;
     }
     .item-delete-icon {
       font-size: 1.1rem;
@@ -116,6 +126,7 @@
         transform: scale(1.05);
       }
     }
+
     .item-download-icon {
       display: block;
       z-index: 50;
