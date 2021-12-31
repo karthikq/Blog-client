@@ -88,7 +88,7 @@ const UserProfle = ({ user, posts, otherusers }) => {
                 <MdOutlineKeyboardArrowRight className="up-arraow-icon" />
               </p>
             )}
-            {/* <p
+            <p
               className={
                 path !== "favorites" ? "up-p-tag" : "up-p-tag up-p-tag-active"
               }
@@ -97,7 +97,7 @@ const UserProfle = ({ user, posts, otherusers }) => {
                 <BsHeart /> favorites
               </span>
               <MdOutlineKeyboardArrowRight className="up-arraow-icon" />
-            </p> */}
+            </p>
           </div>
         </div>
         <div className="up-details">
@@ -131,10 +131,10 @@ const UserProfle = ({ user, posts, otherusers }) => {
             </React.Fragment>
           )}
 
-          {/* {path === "favorites" && (
+          {path === "favorites" && (
             <React.Fragment>
               {adminUser ? (
-                user.fav.length > 0 ? (
+                user.fav?.length > 0 ? (
                   user.fav?.map((item, index) => (
                     <UserPost
                       item={item}
@@ -159,7 +159,7 @@ const UserProfle = ({ user, posts, otherusers }) => {
                 <h2>No Favorites items found</h2>
               )}
             </React.Fragment>
-          )} */}
+          )}
         </div>
       </div>
     </div>
