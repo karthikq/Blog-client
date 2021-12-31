@@ -79,7 +79,7 @@ const Item = (props) => {
               <p className="item-date">
                 Created at : {new Date(data.sortDate).toLocaleDateString()}
               </p>{" "}
-              <div className="item-download">
+              <div className="item-download" title="Download Image">
                 <a
                   download={data.image}
                   href={data.image}
@@ -112,12 +112,12 @@ const Item = (props) => {
                     </div>
                   )}
                   {props.user.userData.userId === data.userId && (
-                    <div>
+                    <div className="edit-icon-div">
                       <Link
                         title="Edit Post"
                         to={`/user/post/edit/${data.post_Id}?field=${data.fieldName}`}>
                         <RiEditBoxLine
-                          className="item-download-icon"
+                          className="item-edit-icon"
                           style={{ marginRight: "0.2rem" }}
                         />
                       </Link>
