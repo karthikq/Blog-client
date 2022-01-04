@@ -157,7 +157,7 @@ const Navbar = (props) => {
             </Link>
           </li>
           <li>
-            <Link to="/field/cryto">
+            <Link to="/field/crypto">
               <FaBitcoin className="list-nav-icon" /> Crypto
             </Link>
           </li>
