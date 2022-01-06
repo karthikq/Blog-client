@@ -41,7 +41,7 @@ const UserProfle = ({ user, posts, otherusers }) => {
   return (
     <div className="up-container">
       <MetaTags
-        title={`Profile | ${user ? user.username : userDetails.username}`}
+        title={`Profile | ${user ? user.username : user?.username}`}
         description={`Articles of ${
           user ? user.username : userDetails.username
         }`}
@@ -121,10 +121,20 @@ const UserProfle = ({ user, posts, otherusers }) => {
             <React.Fragment>
               {adminUser
                 ? user.posts?.map((item, index) => (
-                    <UserPost item={item} key={index} state={true} userState={true} />
+                    <UserPost
+                      item={item}
+                      key={index}
+                      state={true}
+                      userState={true}
+                    />
                   ))
                 : userDetails?.posts?.map((item, index) => (
-                    <UserPost item={item} key={index} state={true} userState={false} />
+                    <UserPost
+                      item={item}
+                      key={index}
+                      state={true}
+                      userState={false}
+                    />
                   ))}
             </React.Fragment>
           )}

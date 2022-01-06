@@ -1,10 +1,10 @@
 /** @format */
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./navbar.styles.scss";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Select from "react-select";
 import { RiUserLine } from "react-icons/ri";
 import { logoutUser } from "../../redux/actions";
@@ -17,6 +17,9 @@ import {
   AiOutlinePlusSquare,
 } from "react-icons/ai";
 import { MdEngineering } from "react-icons/md";
+import { motion } from "framer-motion";
+import ThemeContext from "../context/ThemeContext";
+import { useContext } from "react";
 
 const customStyles = {
   control: (base) => ({
@@ -102,6 +105,16 @@ const Navbar = (props) => {
     };
   });
 
+  const ellipseVariants = {
+    start: {
+      d: "M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z",
+    },
+    end: {
+      d: "M47.0409 26.5638C40.9393 38.9495 25.9524 44.0439 13.5666 37.9424C1.18083 31.8408 -2.58706 16.3302 3.51448 3.9444C9.61602 -8.44139 9.61421 15.3985 22 21.5C34.3858 27.6015 53.1424 14.178 47.0409 26.5638Z",
+    },
+  };
+  const { theme, updateTheme } = useContext(ThemeContext);
+
   return (
     <React.Fragment>
       <div className="navbar-wrapper">
@@ -115,6 +128,48 @@ const Navbar = (props) => {
             </Link>
           </div>
           <div className="nav-details">
+            <div className="toogle-mode">
+              {/* <input type="checkbox" id="checkbox" />
+              <label htmlFor="checkbox" className="checkbox-label" >
+
+              </label> */}
+              <motion.svg
+                onClick={updateTheme}
+                className="sun-svg"
+                initial="start"
+                animate={theme === "light" ? "start" : "end"}
+                width="50"
+                height="50"
+                viewBox="0 0 50 50"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ outline: 0 }}>
+                <motion.path
+                  transition={{ duration: 1 }}
+                  variants={ellipseVariants}
+                  fill={theme === "light" ? "#F0CA00" : "white"}
+                />
+              </motion.svg>
+
+              {/* <motion.svg
+                initial="start"
+                width="100"
+                height="100"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                whileHover="end">
+                <motion.path
+                  variants={ellipseVariants}
+                  transition={{
+                    duration: 2,
+                    yoyo: Infinity,
+                    repeat: Infinity,
+                  }}
+                  fill="#5C63FE"
+                />
+              </motion.svg> */}
+            </div>
             <div className="nav-profile">
               <img
                 onClick={() => setDropdownState(!dropdownState)}

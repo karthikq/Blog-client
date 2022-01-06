@@ -1,4 +1,35 @@
 /** @format */
+:root {
+  --tag-color: rgb(17, 17, 17);
+  --home-h1-color: rgba(2, 2, 2, 0.712);
+  --primary-color: rgb(0, 0, 0);
+  --secondary-color: white;
+  --field-header-h1: rgba(36, 36, 36, 0.725);
+  --field-header-green: #4dbc92;
+  --like-color: rgba(8, 8, 8, 0.753);
+  --field-hover-green: #1a9e60;
+  --bg-color: rgb(255, 255, 255);
+  --border-color: rgba(0, 0, 0, 0.041);
+  --field-shadow: rgba(0, 0, 0, 0.048);
+}
+.dark-theme {
+  --tag-color: rgb(255, 255, 255);
+  --home-h1-color: rgba(255, 255, 255, 0.712);
+  --primary-color: rgb(241, 241, 241);
+  --secondary-color: white;
+  --field-header-h1: rgba(255, 255, 255, 0.725);
+  --field-header-green: #4dbc92;
+  --like-color: rgba(255, 255, 255, 0.753);
+  --field-hover-green: #1a9e60;
+  --bg-color: rgb(0, 0, 0);
+  --border-color: rgba(221, 221, 221, 0.11);
+  --field-shadow: rgba(255, 255, 255, 0.062);
+}
+body {
+  background: var(--bg-color);
+
+  transition: background 0.3s linear;
+}
 
 .home-container {
   width: 100%;
@@ -49,7 +80,7 @@
   }
   a {
     text-decoration: none;
-    color: black;
+    color: var(--primary-color);
     &:hover {
       color: rgb(20, 211, 61);
     }
@@ -62,7 +93,7 @@
   }
 }
 .home-t-span {
-  color: rgb(17, 17, 17);
+  color: var(--tag-color);
   font-weight: 600;
 }
 
@@ -77,7 +108,7 @@
     margin-top: 0;
     font-weight: 600;
     font-size: 1.55rem;
-    color: rgba(2, 2, 2, 0.712);
+    color: var(--home-h1-color);
     margin-bottom: 1.4rem;
     font-family: "Poppins", sans-serif;
   }
@@ -89,6 +120,7 @@
     font-weight: 400;
     line-height: 1.9;
     width: 90%;
+    color: var(--primary-color);
   }
   .a-tag {
     margin-top: 1.4rem;
