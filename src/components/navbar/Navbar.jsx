@@ -20,39 +20,8 @@ import { MdEngineering } from "react-icons/md";
 import { motion } from "framer-motion";
 import ThemeContext from "../context/ThemeContext";
 import { useContext } from "react";
+import { BsMoon, BsSun } from "react-icons/bs";
 
-const customStyles = {
-  control: (base) => ({
-    ...base,
-    minHeight: 30,
-    fontSize: "14px",
-    border: "0",
-    borderRadius: "0",
-    outline: "0",
-    borderBottom: "1px solid rgb(44, 44, 44)",
-  }),
-  dropdownIndicator: (base) => ({
-    ...base,
-    padding: 6,
-  }),
-  clearIndicator: (base) => ({
-    ...base,
-    padding: 4,
-  }),
-  multiValue: (base) => ({
-    ...base,
-    backgroundColor: "white",
-  }),
-  valueContainer: (base) => ({
-    ...base,
-    padding: "0px 6px",
-  }),
-  input: (base) => ({
-    ...base,
-    margin: 0,
-    padding: 0,
-  }),
-};
 const Navbar = (props) => {
   const [dropdownState, setDropdownState] = useState(false);
   const ref = useRef();
@@ -105,16 +74,62 @@ const Navbar = (props) => {
     };
   });
 
-  const ellipseVariants = {
-    start: {
-      d: "M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z",
-    },
-    end: {
-      d: "M47.0409 26.5638C40.9393 38.9495 25.9524 44.0439 13.5666 37.9424C1.18083 31.8408 -2.58706 16.3302 3.51448 3.9444C9.61602 -8.44139 9.61421 15.3985 22 21.5C34.3858 27.6015 53.1424 14.178 47.0409 26.5638Z",
-    },
-  };
   const { theme, updateTheme } = useContext(ThemeContext);
-
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: theme === "light" ? "white" : "black",
+      color:
+        theme === "light"
+          ? state.isSelected
+            ? "black"
+            : "#4dbc92"
+          : state.isSelected
+          ? "white"
+          : "#4dbc92",
+    }),
+    placeholder: (defaultStyles) => {
+      return {
+        ...defaultStyles,
+        color: theme === "light" ? "black" : "white",
+      };
+    },
+    control: (base) => ({
+      ...base,
+      minHeight: 30,
+      fontSize: "14px",
+      border: "0",
+      borderRadius: "0",
+      outline: "0",
+      backgroundColor: theme === "light" ? "white" : "black",
+      borderBottom: "1px solid rgb(44, 44, 44)",
+    }),
+    dropdownIndicator: (base) => ({
+      ...base,
+      padding: 6,
+    }),
+    clearIndicator: (base) => ({
+      ...base,
+      padding: 4,
+    }),
+    multiValue: (base) => ({
+      ...base,
+      backgroundColor: "white",
+    }),
+    valueContainer: (base) => ({
+      ...base,
+      padding: "0px 6px",
+    }),
+    input: (base) => ({
+      ...base,
+      margin: 0,
+      padding: 0,
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: theme === "light" ? "black" : "white",
+    }),
+  };
   return (
     <React.Fragment>
       <div className="navbar-wrapper">
@@ -133,8 +148,7 @@ const Navbar = (props) => {
               <label htmlFor="checkbox" className="checkbox-label" >
 
               </label> */}
-              <motion.svg
-                onClick={updateTheme}
+              {/* <motion.svg
                 className="sun-svg"
                 initial="start"
                 animate={theme === "light" ? "start" : "end"}
@@ -149,7 +163,7 @@ const Navbar = (props) => {
                   variants={ellipseVariants}
                   fill={theme === "light" ? "#F0CA00" : "white"}
                 />
-              </motion.svg>
+              </motion.svg> */}
 
               {/* <motion.svg
                 initial="start"
@@ -176,7 +190,9 @@ const Navbar = (props) => {
                 src={props.isAuth ? props.userDetails.profileUrl : avatar}
                 alt="profileimage"
               />
-              <div
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 className={
                   dropdownState ? "dropdown dropdown-active" : "dropdown"
                 }>
@@ -199,7 +215,27 @@ const Navbar = (props) => {
                     </span>
                   </Link>
                 )}
-              </div>
+                {theme !== "light" ? (
+                  <span
+                    style={{ marginBottom: "0.4rem" }}
+                    onClick={() => {
+                      updateTheme();
+                      setDropdownState(false);
+                    }}>
+                    <BsSun />
+                    Light Mode
+                  </span>
+                ) : (
+                  <span
+                    style={{ marginBottom: "0.4rem" }}
+                    onClick={() => {
+                      updateTheme();
+                      setDropdownState(false);
+                    }}>
+                    <BsMoon style={{ fontSize: "0.8rem" }} /> Dark Mode
+                  </span>
+                )}
+              </motion.div>
             </div>
           </div>
         </div>

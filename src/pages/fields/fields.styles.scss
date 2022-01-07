@@ -8,7 +8,7 @@
 .box {
   width: 10px;
   height: 45px;
-  background-color: rgba(0, 0, 0, 0.123);
+  background-color: var(--field-header-box);
   margin-right: 0.5rem;
 }
 .alert-container {
@@ -276,8 +276,8 @@
       .fav-icon {
         font-size: 1.05rem;
         padding: 0.5rem;
-        color: #ff210438;
-        background: #00000009;
+        color: #ff210465;
+        background: var(--icon-bg-color);
         border-radius: 50%;
 
         cursor: pointer;
