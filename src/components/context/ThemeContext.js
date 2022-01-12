@@ -1,6 +1,7 @@
 /** @format */
 
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const ThemeContext = React.createContext();
@@ -11,9 +12,11 @@ export const ThemeProvider = ({ children }) => {
   const updateTheme = () => {
     if (theme === "light") {
       setTheme("dark");
+
       document.body.classList.add("dark-theme");
     } else {
       document.body.classList.remove("dark-theme");
+
       setTheme("light");
     }
   };

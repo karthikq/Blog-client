@@ -137,9 +137,13 @@ const Navbar = (props) => {
           <div className="brand-logo">
             <Link to="/">
               <img
-                src="https://i.ibb.co/yPBrs0Z/ARTICLESg.png"
+                src={
+                  theme === "light"
+                    ? "https://i.ibb.co/yPBrs0Z/ARTICLESg.png"
+                    : "https://i.ibb.co/7CXmqxC/ARTICLES.png"
+                }
                 alt="brand logo"
-              />{" "}
+              />
             </Link>
           </div>
           <div className="nav-details">
