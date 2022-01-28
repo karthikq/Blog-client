@@ -160,12 +160,12 @@ body {
     margin-top: 1.4rem;
     padding: 0.5rem 0.9rem 0.6rem;
     background-color: rgba(173, 216, 230, 0.562);
-    color: rgb(0, 0, 0);
+    color: var(--primary-color);
     font-size: 0.85rem;
     text-decoration: none;
     &:hover {
-      background-color: black;
-      color: rgb(252, 252, 252);
+      background-color: var(--secondary-color);
+      color: var(--bg-color);
     }
   }
 }
