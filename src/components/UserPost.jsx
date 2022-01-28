@@ -61,9 +61,9 @@ const UserPost = (props) => {
             <h2>{postData?.title}</h2>
           </Link>
           <p>
-            {postData.description?.length > 80 ? (
+            {postData?.description?.length > 80 ? (
               <React.Fragment>
-                {postData.description.substring(0, 80) + "..."}
+                {postData?.description.substring(0, 80) + "..."}
                 <Link
                   to={`/post/?postId=${postData.post_Id}&field=${postData.fieldName}`}
                   className="readtag">
@@ -71,7 +71,7 @@ const UserPost = (props) => {
                 </Link>
               </React.Fragment>
             ) : (
-              postData.description
+              postData?.description
             )}
           </p>
           <div className="up-userpost-likes">
