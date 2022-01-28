@@ -65,7 +65,7 @@ const UserPost = (props) => {
               <React.Fragment>
                 {postData?.description.substring(0, 80) + "..."}
                 <Link
-                  to={`/post/?postId=${postData.post_Id}&field=${postData.fieldName}`}
+                  to={`/post/?postId=${postData?.post_Id}&field=${postData?.fieldName}`}
                   className="readtag">
                   read more
                 </Link>
@@ -98,9 +98,9 @@ const UserPost = (props) => {
           )}
           {props.userState && (
             <div className="up-userpost-status">
-              {postData.status === "Public" ? (
+              {postData?.status === "Public" ? (
                 <Link
-                  to={`/user/post/edit/${postData.post_Id}?field=${postData.fieldName}`}>
+                  to={`/user/post/edit/${postData?.post_Id}?field=${postData?.fieldName}`}>
                   <MdPublic
                     title="Click here to change status"
                     className="up-userpost-status-icon"
@@ -108,7 +108,7 @@ const UserPost = (props) => {
                 </Link>
               ) : (
                 <Link
-                  to={`/user/post/edit/${postData.post_Id}?field=${postData.fieldName}`}>
+                  to={`/user/post/edit/${postData?.post_Id}?field=${postData?.fieldName}`}>
                   <RiGitRepositoryPrivateLine
                     title="Click here to change status"
                     className="up-userpost-status-icon"
