@@ -7,7 +7,7 @@ const FavComp = (props) => {
   return (
     <div>
       {props.user.userData.fav?.find(
-        (el) => el.fav_postId === props.post.post_Id
+        (el) => el.fav_postId === props.post?.post_Id
       ) ? (
         <div
           className={props.itemClass}

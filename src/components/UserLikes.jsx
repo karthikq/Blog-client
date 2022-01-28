@@ -62,7 +62,7 @@ const UserLikes = ({
       <span className={itemclass}>
         {props.user.Auth ? (
           props.user?.userData?.likes?.find(
-            (user) => user.post_Id === item.post_Id
+            (user) => user.post_Id === item?.post_Id
           ) ? (
             <AiTwotoneLike
               title="remove like"
@@ -84,28 +84,28 @@ const UserLikes = ({
           />
         )}
         {props.user.Auth && !loaderState ? (
-          item.like
+          item?.like
         ) : selPost === item.post_Id ? (
           <div className="sfield-loading">
             <span className="sfield-loading-span"></span>{" "}
           </div>
         ) : (
-          item.like
+          item?.like
         )}
       </span>
       <span className={itemclass}>
         {props.user.Auth && !dislikeloaderState ? (
-          item.dislike
-        ) : selPost === item.post_Id ? (
+          item?.dislike
+        ) : selPost === item?.post_Id ? (
           <div className="sfield-loading">
             <span className="sfield-loading-span"></span>{" "}
           </div>
         ) : (
-          item.dislike
+          item?.dislike
         )}
         {props.user.Auth ? (
           props.user.userData?.dislikes?.find(
-            (elem) => elem.post_Id === item.post_Id
+            (elem) => elem.post_Id === item?.post_Id
           ) ? (
             <AiTwotoneDislike
               title="reomve dislike"
