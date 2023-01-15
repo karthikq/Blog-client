@@ -188,9 +188,11 @@ const Navbar = (props) => {
                 />
               </motion.svg> */}
             </div>
-            <div className="nav-profile">
+            <div
+              className="nav-profile"
+              onClick={() => setDropdownState(!dropdownState)}
+            >
               <img
-                onClick={() => setDropdownState(!dropdownState)}
                 src={props.isAuth ? props.userDetails.profileUrl : avatar}
                 alt="profileimage"
               />
@@ -199,10 +201,12 @@ const Navbar = (props) => {
                 animate={{ opacity: 1 }}
                 className={
                   dropdownState ? "dropdown dropdown-active" : "dropdown"
-                }>
+                }
+              >
                 {props.isAuth && (
                   <Link
-                    to={`/user/profile/${props.userDetails?.userId}?path=posts`}>
+                    to={`/user/profile/${props.userDetails?.userId}?path=posts`}
+                  >
                     <span onClick={() => setDropdownState(false)}>
                       <RiUserLine /> Profile
                     </span>
@@ -225,7 +229,8 @@ const Navbar = (props) => {
                     onClick={() => {
                       updateTheme();
                       setDropdownState(false);
-                    }}>
+                    }}
+                  >
                     <BsSun />
                     Light Mode
                   </span>
@@ -235,7 +240,8 @@ const Navbar = (props) => {
                     onClick={() => {
                       updateTheme();
                       setDropdownState(false);
-                    }}>
+                    }}
+                  >
                     <BsMoon style={{ fontSize: "0.8rem" }} /> Dark Mode
                   </span>
                 )}

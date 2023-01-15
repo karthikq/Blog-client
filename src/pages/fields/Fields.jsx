@@ -102,7 +102,8 @@ const Fields = (props) => {
                 </div>
                 <Link
                   to={`/field/${props.item?.fieldName}`}
-                  style={{ textDecoration: "none" }}>
+                  style={{ textDecoration: "none" }}
+                >
                   <span className="field-header-span">
                     All {props.item?.fieldName} articles
                   </span>
@@ -117,7 +118,8 @@ const Fields = (props) => {
                   />
                   <Link
                     style={{ textDecoration: "none" }}
-                    to={`/post/?postId=${publicPost?.post_Id}&field=${publicPost?.fieldName}`}>
+                    to={`/post/?postId=${publicPost?.post_Id}&field=${publicPost?.fieldName}`}
+                  >
                     <h3> {publicPost?.title}</h3>
                   </Link>
                   <UserPostdetails post={publicPost} userclass="avatar" />
@@ -127,7 +129,8 @@ const Fields = (props) => {
                         {publicPost?.description.substring(0, 50) + "... "}
                         <Link
                           to={`/post/?postId=${publicPost?.post_Id}&field=${publicPost?.fieldName}`}
-                          className="readtag">
+                          className="readtag"
+                        >
                           Read more
                         </Link>
                       </React.Fragment>
@@ -148,7 +151,8 @@ const Fields = (props) => {
                     props.item.usersPost.length > 1
                       ? "field-right-content"
                       : "field-right-content field-right-nocontent"
-                  }>
+                  }
+                >
                   <p className="field-right-header">
                     {props.item.usersPost.length > 1 && "Related Articles"}
                   </p>
@@ -158,7 +162,8 @@ const Fields = (props) => {
                           <div
                             className="field-right-items"
                             key={index}
-                            id={post.post_Id}>
+                            id={post.post_Id}
+                          >
                             <FavComp
                               addFav={handleFav}
                               removeFav={removeFav}
@@ -171,7 +176,8 @@ const Fields = (props) => {
                             <Link
                               className="fieldatag"
                               style={{ textDecoration: "none" }}
-                              to={`/post/?postId=${post?.post_Id}&field=${post?.fieldName}`}>
+                              to={`/post/?postId=${post?.post_Id}&field=${post?.fieldName}`}
+                            >
                               <h3>
                                 {post.title.length > 70
                                   ? post.title.substring(0, 50) + " ..."
@@ -187,7 +193,8 @@ const Fields = (props) => {
                                     {post.description.substring(0, 50) + "... "}
                                     <Link
                                       className="readtag"
-                                      to={`/post/?postId=${post.post_Id}&field=${post.fieldName}`}>
+                                      to={`/post/?postId=${post.post_Id}&field=${post.fieldName}`}
+                                    >
                                       Read more
                                     </Link>
                                   </React.Fragment>

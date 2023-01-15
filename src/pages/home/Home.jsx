@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import UserPostdetails from "../../components/UserPostDetails/UserPostdetails";
 import Fields from "../fields/Fields";
 import "./Home.styles.scss";
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const Home = (props) => {
   const [likedPost, setLikedPost] = useState("");
   const [imgState, setimgState] = useState(false);
-
+  const posts = useSelector((state) => state.posts);
   useEffect(() => {
     const maxlike = props.posts.map((item) =>
       item.usersPost.filter((item) => {
@@ -30,7 +30,9 @@ const Home = (props) => {
     // setLikedPost(item[randomNumber][0]);
     return () => setimgState(false);
   }, [props.posts]);
-
+  console.log("====================================");
+  console.log(props.posts);
+  console.log("====================================");
   return (
     <React.Fragment>
       <div className="home-container">
@@ -61,7 +63,8 @@ const Home = (props) => {
                 </span>
                 <Link
                   to={`/post/?postId=${likedPost.post_Id}&field=${likedPost.fieldName}`}
-                  className="a-tag">
+                  className="a-tag"
+                >
                   Read More
                 </Link>
               </div>

@@ -179,7 +179,8 @@ export class CreatePost extends Component {
                 this.state.submitState
                   ? "create-items-left form-opacity"
                   : "create-items-left"
-              }>
+              }
+            >
               <div className="input-container">
                 <label>Title</label>
                 <input
@@ -214,7 +215,8 @@ export class CreatePost extends Component {
                       },
                     });
                   }}
-                  placeholder="Description of the article"></textarea>
+                  placeholder="Description of the article"
+                ></textarea>
                 <span className="desp-length">
                   {this.state.userPosts.description &&
                     this.state.userPosts.description.length}
@@ -249,7 +251,8 @@ export class CreatePost extends Component {
                       display: "block",
                       fontSize: "0.8rem",
                       color: "red",
-                    }}>
+                    }}
+                  >
                     This field is required !{" "}
                   </span>
                 )}
@@ -268,7 +271,8 @@ export class CreatePost extends Component {
                           fieldName: e.target.value,
                         },
                       });
-                    }}>
+                    }}
+                  >
                     <option value="Design">Design</option>
                     {/* 
                     <option value="Engineering">Engineering</option>
@@ -311,7 +315,8 @@ export class CreatePost extends Component {
                   <span
                     onClick={() =>
                       this.setState({ selectState: !this.state.selectState })
-                    }>
+                    }
+                  >
                     click here
                   </span>
                 </p>
@@ -322,7 +327,8 @@ export class CreatePost extends Component {
                 this.state.submitState
                   ? "create-right-container form-opacity"
                   : "create-right-container"
-              }>
+              }
+            >
               <div className="input-conatiner">
                 <label htmlFor="postimg" id="imgbtn">
                   Choose Img
